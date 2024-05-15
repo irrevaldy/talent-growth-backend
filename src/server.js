@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 
 const app = express();
-const port = 3001;
+const port = process.env.PORT || 3001;
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -27,6 +27,7 @@ app.post('/submit', (req, res) => {
 app.get('/data', (req, res) => {
   res.json(formData);
 });
+
 
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
